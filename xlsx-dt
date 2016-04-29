@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+
+set -e
+
+XLSX_FILE="$1"
+XLSX_SHEET="$2"
+
+if [ -z "${XLSX_FILE}" ]; then
+    echo "Usage:"
+    echo "    $(basename $0) myfile.xlsx\n"
+    echo "    $(basename $0) myfile.xlsx \"mysheetname\" \n"
+    exit 0
+else
+    if [ -z "${XLSX_SHEET}" ]; then
+        Rscript --vanilla -e "library(methods); library(shiny); xldf <- readxl::read_excel(file.path(\"${XLSX_FILE}\")); myapp <- shinyApp(ui = fluidPage(DT::dataTableOutput('tbl')), server = function(input, output) { output\$tbl = DT::renderDataTable(xldf, options = list(lengthChange = FALSE)) }); runApp(myapp, launch.browser = TRUE)"
+    else
+        Rscript --vanilla -e "library(methods); library(shiny); xldf <- readxl::read_excel(file.path(\"${XLSX_FILE}\"), sheet = \"${XLSX_SHEET}\"); myapp <- shinyApp(ui = fluidPage(DT::dataTableOutput('tbl')), server = function(input, output) { output\$tbl = DT::renderDataTable(xldf, options = list(lengthChange = FALSE)) }); runApp(myapp, launch.browser = TRUE)"
+    fi
+fi
