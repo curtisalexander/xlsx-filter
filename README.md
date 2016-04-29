@@ -1,5 +1,5 @@
 # xlsx-filter
-Interactively filter an `xlsx` file.  Assumes that the data within the `xlsx` file is in a tabular format and that the table has header.
+Interactively filter an `xlsx` file.  Assumes that the data within the `xlsx` file is in a tabular format and that the table has a header.
 
 ## xlsx-dt
 Filter a table from an `xlsx` file interactively within the browser.  The script creates a simple [Shiny](http://shiny.rstudio.com) app that opens in the browser, allowing the user to interact with (including filtering) the table of interest.
