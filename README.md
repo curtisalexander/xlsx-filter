@@ -1,19 +1,21 @@
 # xlsx-filter
-Interactively filter `xlsx` file.  Assumes that the data within the `xlsx` file is in a tabular format and that the table has header.
+Interactively filter an `xlsx` file.  Assumes that the data within the `xlsx` file is in a tabular format and that the table has header.
 
 ## xlsx-dt
-Filter a table from an `xlsx` interactively in the browser.  The script creates a simple [Shiny](http://shiny.rstudio.com) app that opens in the browser, allowing the user to interact with (including filtering) the table of interest.
+Filter a table from an `xlsx` file interactively within the browser.  The script creates a simple [Shiny](http://shiny.rstudio.com) app that opens in the browser, allowing the user to interact with (including filtering) the table of interest.
 
 The script makes use of the R package [DT](https://rstudio.github.io/DT/) which is an R interface to the JavaScript [DataTables](https://datatables.net) library.
 
 ### Usage
-There is an option to include a specific sheet or simply read in the first sheet.  After execution, a browser window should open that allows the user to interact with the table.
+There is an option to include a specific sheet or simply read in the first sheet.  After execution, a browser window will open allowing the user to interact with the table.
 
 ```bash
+# read the first sheet
 xlsx-dt myfile.xlsx
 ```
 
 ```bash
+# read a specific sheet
 xlsx-dt myfile.xlsx "mysheetname"
 ```
 
@@ -28,16 +30,18 @@ install.packages("shiny")
 ```
 
 ## xlsx-fzf
-Filter a table from an `xlsx` interactively from the command line.  The script reads a table from an `xlsx` file and pipes the result to the [fzf](https://github.com/junegunn/fzf) program.
+Filter a table from an `xlsx` file interactively within the command line.  The script reads a table from an `xlsx` file and pipes the result to the [fzf](https://github.com/junegunn/fzf) program.
 
 ### Usage
-There is an option to include a specific sheet or simply read in the first sheet.  After execution, the user is dropped into an interactive `fzf` session that allows the user to interact with the table.
+There is an option to include a specific sheet or simply read in the first sheet.  After execution, the user is dropped into `fzf` allowing the user to interact with the table.
 
 ```bash
+# read the first sheet
 xlsx-fzf myfile.xlsx
 ```
 
 ```bash
+# read a specific sheet
 xlsx-fzf myfile.xlsx "mysheetname"
 ```
 
