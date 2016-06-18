@@ -12,8 +12,8 @@ if [ -z "${XLSX_FILE}" ]; then
     exit 0
 else
     if [ -z "${XLSX_SHEET}" ]; then
-        Rscript --vanilla -e "options(warn=-1); write.table(readxl::read_excel(file.path(\"${XLSX_FILE}\")), quote = FALSE)" | fzf --header-lines=1 | cat
+        Rscript --vanilla -e "options(warn=-1); write.table(readxl::read_excel(file.path(\"${XLSX_FILE}\")), quote = FALSE)" | fzf --header-lines=1 -m | cat
     else
-        Rscript --vanilla -e "options(warn=-1); write.table(readxl::read_excel(file.path(\"${XLSX_FILE}\"), sheet = \"${XLSX_SHEET}\"), quote = FALSE)" | fzf --header-lines=1 | cat
+        Rscript --vanilla -e "options(warn=-1); write.table(readxl::read_excel(file.path(\"${XLSX_FILE}\"), sheet = \"${XLSX_SHEET}\"), quote = FALSE)" | fzf --header-lines=1 -m | cat
     fi
 fi
