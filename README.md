@@ -1,4 +1,4 @@
-# Interactively filter XLSX file
+# filter `xlsx`
 Interactively filter an `xlsx` file.  Assumes that the data within the `xlsx` file is in a tabular format and that the table has a header.
 
 ## xlsx-dt
